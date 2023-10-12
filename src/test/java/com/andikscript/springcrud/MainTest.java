@@ -1,4 +1,4 @@
-package org.andikscript.springcrud;
+package com.andikscript.springcrud;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
