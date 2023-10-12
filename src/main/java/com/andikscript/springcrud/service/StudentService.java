@@ -18,4 +18,8 @@ public class StudentService {
     public List<StudentDto> getAllStudent() {
         return studentDao.getAllStudent();
     }
+
+    public StudentDto getStudentById(Integer id) {
+        return studentDao.getStudentById(id);
+    }
 }

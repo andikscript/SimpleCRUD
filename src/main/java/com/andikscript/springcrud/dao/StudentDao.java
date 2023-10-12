@@ -8,5 +8,5 @@ public interface StudentDao {
 
     List<StudentDto> getAllStudent();
 
-
+    StudentDto getStudentById(Integer id);
 }
