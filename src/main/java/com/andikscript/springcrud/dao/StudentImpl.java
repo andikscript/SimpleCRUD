@@ -1,7 +1,6 @@
 package com.andikscript.springcrud.dao;
 
 import com.andikscript.springcrud.dto.StudentDto;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
