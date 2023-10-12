@@ -1,12 +1,12 @@
 package com.andikscript.springcrud.dto;
 
-public class StudentDto {
+public class Student {
 
     private Integer id;
 
     private String name;
 
-    public StudentDto(Integer id, String name) {
+    public Student(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -29,7 +29,7 @@ public class StudentDto {
 
     @Override
     public String toString() {
-        return "StudentDto{" +
+        return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

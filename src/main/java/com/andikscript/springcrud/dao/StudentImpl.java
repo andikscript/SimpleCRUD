@@ -1,6 +1,6 @@
 package com.andikscript.springcrud.dao;
 
-import com.andikscript.springcrud.dto.StudentDto;
+import com.andikscript.springcrud.dto.Student;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -21,31 +21,31 @@ public class StudentImpl implements StudentDao {
     }
 
     @Override
-    public List<StudentDto> getAllStudent() {
+    public List<Student> getAllStudent() {
         String sql = "SELECT * FROM student ORDER BY id ASC";
 
-        List<StudentDto> studentDtoList = jdbcTemplate.query(
+        List<Student> studentList = jdbcTemplate.query(
                 sql,
-                new RowMapper<StudentDto>() {
+                new RowMapper<Student>() {
                     @Override
-                    public StudentDto mapRow(ResultSet rs, int rowNum) throws SQLException {
+                    public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
                         return setResult(rs, rowNum);
                     }
                 }
         );
 
-        return studentDtoList;
+        return studentList;
     }
 
     @Override
-    public StudentDto getStudentById(Integer id) {
+    public Student getStudentById(Integer id) {
         String sql = "SELECT * FROM student WHERE id = ?";
 
-        StudentDto student = jdbcTemplate.queryForObject(
+        Student student = jdbcTemplate.queryForObject(
                 sql,
-                new RowMapper<StudentDto>() {
+                new RowMapper<Student>() {
                     @Override
-                    public StudentDto mapRow(ResultSet rs, int rowNum) throws SQLException {
+                    public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
                         return setResult(rs, rowNum);
                     }
                 }, new Object[] { id }
@@ -53,8 +53,8 @@ public class StudentImpl implements StudentDao {
         return student;
     }
 
-    private StudentDto setResult(ResultSet rs, int numRow) throws SQLException {
-        StudentDto student = new StudentDto(
+    private Student setResult(ResultSet rs, int numRow) throws SQLException {
+        Student student = new Student(
                 rs.getInt("id"),
                 rs.getString("name")
         );

@@ -1,12 +1,12 @@
 package com.andikscript.springcrud.dao;
 
-import com.andikscript.springcrud.dto.StudentDto;
+import com.andikscript.springcrud.dto.Student;
 
 import java.util.List;
 
 public interface StudentDao {
 
-    List<StudentDto> getAllStudent();
+    List<Student> getAllStudent();
 
-    StudentDto getStudentById(Integer id);
+    Student getStudentById(Integer id);
 }

@@ -1,7 +1,7 @@
 package com.andikscript.springcrud.service;
 
 import com.andikscript.springcrud.dao.StudentDao;
-import com.andikscript.springcrud.dto.StudentDto;
+import com.andikscript.springcrud.dto.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -15,11 +15,11 @@ public class StudentService {
         this.studentDao = studentDao;
     }
 
-    public List<StudentDto> getAllStudent() {
+    public List<Student> getAllStudent() {
         return studentDao.getAllStudent();
     }
 
-    public StudentDto getStudentById(Integer id) {
+    public Student getStudentById(Integer id) {
         return studentDao.getStudentById(id);
     }
 }
