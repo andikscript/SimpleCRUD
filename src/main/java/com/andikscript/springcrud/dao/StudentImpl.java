@@ -26,10 +26,12 @@ public class StudentImpl implements StudentDao {
 
         List<StudentDto> studentDtoList = jdbcTemplate.query(
                 sql,
-                (rs, rowNum) -> new StudentDto(
-                        rs.getInt("id"),
-                        rs.getString("name")
-                )
+                new RowMapper<StudentDto>() {
+                    @Override
+                    public StudentDto mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        return setResult(rs, rowNum);
+                    }
+                }
         );
 
         return studentDtoList;
