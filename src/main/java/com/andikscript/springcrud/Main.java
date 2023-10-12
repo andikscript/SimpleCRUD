@@ -16,5 +16,6 @@ public class Main
         StudentService studentService = (StudentService) context.getBean("studentService");
 
         System.out.println(studentService.getAllStudent());
+        System.out.println(studentService.getStudentById(1));
     }
 }
