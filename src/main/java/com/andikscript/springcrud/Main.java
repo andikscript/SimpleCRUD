@@ -25,5 +25,9 @@ public class Main
         // add student
         System.out.println(studentService.addStudent(new Student(5, "Mindai")));
         System.out.println(studentService.getAllStudent());
+
+        // update student
+        System.out.println(studentService.updateStudent(new Student(5, "Mindain")));
+        System.out.println(studentService.getAllStudent());
     }
 }

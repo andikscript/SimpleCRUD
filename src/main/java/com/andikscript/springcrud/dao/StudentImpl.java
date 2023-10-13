@@ -65,6 +65,18 @@ public class StudentImpl implements StudentDao {
         return condition > 0;
     }
 
+    @Override
+    public boolean updateStudent(Student student) {
+        String sql = "UPDATE student set name = ? WHERE id = ?";
+
+        int condition = jdbcTemplate.update(sql,
+                new Object[] {
+                   student.getName(), student.getId()
+                });
+
+        return condition > 0;
+    }
+
     private Student setResult(ResultSet rs, int numRow) throws SQLException {
         Student student = new Student(
                 rs.getInt("id"),

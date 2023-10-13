@@ -26,4 +26,8 @@ public class StudentService {
     public boolean addStudent(Student student) {
         return studentDao.addStudent(student);
     }
+
+    public boolean updateStudent(Student student) {
+        return studentDao.updateStudent(student);
+    }
 }

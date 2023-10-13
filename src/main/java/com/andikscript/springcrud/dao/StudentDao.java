@@ -11,4 +11,6 @@ public interface StudentDao {
     Student getStudentById(Integer id);
 
     boolean addStudent(Student student);
+
+    boolean updateStudent(Student student);
 }
