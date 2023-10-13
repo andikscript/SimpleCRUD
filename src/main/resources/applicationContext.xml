@@ -10,7 +10,7 @@
     <!--    for access value on file jdbc.properties-->
     <context:property-placeholder location="classpath:*.properties"/>
 
-    <!--    for configuration beans database-->
+    <!--    for make beans jdbc and configuration database-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${database.driverclass}" />
         <property name="url" value="${database.url}" />
@@ -18,14 +18,17 @@
         <property name="password" value="${database.pass}" />
     </bean>
 
+    <!--    for make beans JdbcTemplate and ref DataSource for config JDBC -->
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <constructor-arg ref="dataSource" />
     </bean>
 
+    <!--    for make beans StudentImpl and ref JdbcTemplate-->
     <bean id="studentDao" class="com.andikscript.springcrud.dao.StudentImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
 
+    <!--    for make beans class StudentService and ref class StudentImple-->
     <bean id="studentService" class="com.andikscript.springcrud.service.StudentService">
         <property name="studentDao" ref="studentDao" />
     </bean>
