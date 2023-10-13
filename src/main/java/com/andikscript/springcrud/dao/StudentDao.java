@@ -9,4 +9,6 @@ public interface StudentDao {
     List<Student> getAllStudent();
 
     Student getStudentById(Integer id);
+
+    boolean addStudent(Student student);
 }

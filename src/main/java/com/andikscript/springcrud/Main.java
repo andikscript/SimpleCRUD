@@ -1,5 +1,6 @@
 package com.andikscript.springcrud;
 
+import com.andikscript.springcrud.dto.Student;
 import com.andikscript.springcrud.service.StudentService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -15,7 +16,14 @@ public class Main
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         StudentService studentService = (StudentService) context.getBean("studentService");
 
+        // get all
         System.out.println(studentService.getAllStudent());
+
+        // get by id
         System.out.println(studentService.getStudentById(1));
+
+        // add student
+        System.out.println(studentService.addStudent(new Student(5, "Mindai")));
+        System.out.println(studentService.getAllStudent());
     }
 }

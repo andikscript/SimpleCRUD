@@ -22,4 +22,8 @@ public class StudentService {
     public Student getStudentById(Integer id) {
         return studentDao.getStudentById(id);
     }
+
+    public boolean addStudent(Student student) {
+        return studentDao.addStudent(student);
+    }
 }

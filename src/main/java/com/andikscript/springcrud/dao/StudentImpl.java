@@ -53,6 +53,18 @@ public class StudentImpl implements StudentDao {
         return student;
     }
 
+    @Override
+    public boolean addStudent(Student student) {
+        String sql = "INSERT INTO student values (?,?)";
+
+        int condition =jdbcTemplate.update(sql,
+                new Object[]{
+                        student.getId(),student.getName()
+                });
+
+        return condition > 0;
+    }
+
     private Student setResult(ResultSet rs, int numRow) throws SQLException {
         Student student = new Student(
                 rs.getInt("id"),
