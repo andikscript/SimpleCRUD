@@ -3,6 +3,7 @@ package com.andikscript.springcrud;
 import com.andikscript.springcrud.config.BeanConfiguration;
 import com.andikscript.springcrud.dto.Student;
 import com.andikscript.springcrud.service.StudentService;
+import com.andikscript.springcrud.transport.SocketServer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -15,20 +16,7 @@ public class Main
     public static void main( String[] args )
     {
         ApplicationContext context1 = new AnnotationConfigApplicationContext(BeanConfiguration.class);
-        StudentService studentService = context1.getBean(StudentService.class);
-
-        // get all
-        System.out.println(studentService.getAllStudent());
-
-        // get by id
-        System.out.println(studentService.getStudentById(1));
-
-        // add student
-        System.out.println(studentService.addStudent(new Student(5, "Mindai")));
-        System.out.println(studentService.getAllStudent());
-
-        // update student
-        System.out.println(studentService.updateStudent(new Student(5, "Mindain")));
-        System.out.println(studentService.getAllStudent());
+        SocketServer socketServer = context1.getBean(SocketServer.class);
+        socketServer.run(5001);
     }
 }

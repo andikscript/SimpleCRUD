@@ -2,6 +2,7 @@ package com.andikscript.springcrud.config;
 
 import com.andikscript.springcrud.dao.StudentDao;
 import com.andikscript.springcrud.dao.StudentImpl;
+import com.andikscript.springcrud.transport.SocketServer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -56,5 +57,10 @@ public class BeanConfiguration {
         student.setJdbcTemplate(jdbcTemplate());
 
         return student;
+    }
+
+    @Bean(name = "socketServer")
+    public SocketServer socketServer() {
+        return new SocketServer();
     }
 }
